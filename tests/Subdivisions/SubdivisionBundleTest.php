@@ -21,6 +21,17 @@ class SubdivisionBundleTest extends \PHPUnit_Framework_TestCase
      */
     private $reader;
 
+    public function testGetStatesAndProvinces()
+    {
+        $result = $this->subdivisionBundle->getStatesAndProvinces();
+
+        self::assertNotEmpty($result);
+        self::assertArrayHasKey('US', $result);
+        self::assertArrayHasKey('CA', $result['US']);
+        self::assertArrayHasKey('MO', $result['US']);
+        self::assertArrayHasKey('TX', $result['US']);
+    }
+
     public function testGetStatesAndProvincesForCountry()
     {
         $result = $this->subdivisionBundle->getStatesAndProvincesForCountry($this->country);

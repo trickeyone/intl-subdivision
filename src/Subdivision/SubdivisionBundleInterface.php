@@ -8,4 +8,9 @@ interface SubdivisionBundleInterface
      * @return array[]
      */
     public function getStatesAndProvincesForCountry($countryCode);
+
+    /**
+     * @return array
+     */
+    public function getStatesAndProvinces();
 }

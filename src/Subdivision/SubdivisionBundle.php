@@ -36,4 +36,12 @@ class SubdivisionBundle implements SubdivisionBundleInterface
 
         return $this->reader->readEntry($this->path, $this->subdivisionFilename, ['Subdivisions', $countryCode]);
     }
+
+    /**
+     * @return array
+     */
+    public function getStatesAndProvinces()
+    {
+        return $this->reader->readEntry($this->path, $this->subdivisionFilename, ['Subdivisions']);
+    }
 }
