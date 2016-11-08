@@ -30,8 +30,7 @@ $subdivisionsForAE = \Symfony\Component\IntlSubdivision::getSubdivision()->getSt
 Resources
 ---------
 
-  * [Documentation](https://symfony.com/doc/current/components/intl.html)
-  * [Contributing](https://symfony.com/doc/current/contributing/index.html)
+  * [Symfony Intl Documentation](https://symfony.com/doc/current/components/intl.html)
   * [Report issues](https://github.com/trickeyone/intl-subdivision/issues) and
     [send Pull Requests](https://github.com/trickeyone/intl-subdivision/pulls)
 
