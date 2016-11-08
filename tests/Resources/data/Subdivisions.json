@@ -1,0 +1,10 @@
+{
+    "Version": "TEST",
+    "Subdivisions": {
+        "US": {
+            "CA": "California",
+            "MO": "Missouri",
+            "TX": "Texas"
+        }
+    }
+}
