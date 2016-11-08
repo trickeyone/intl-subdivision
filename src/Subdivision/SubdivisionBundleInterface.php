@@ -1,5 +1,5 @@
 <?php
-namespace Symfony\Component\IntlSubdivisions\Subdivision;
+namespace Symfony\Component\IntlSubdivision\Subdivision;
 
 interface SubdivisionBundleInterface
 {

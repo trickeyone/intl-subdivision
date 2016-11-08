@@ -1,5 +1,5 @@
 {
-    "name": "trickeyone/intl-subdivisions",
+    "name": "trickeyone/intl-subdivision",
     "description": "A PHP Intl library to retrieve states for a given country.",
     "type": "library",
     "license": "MIT",
@@ -10,19 +10,21 @@
         }
     ],
     "require": {
-        "php": ">=5.5.9",
+        "php": "^5.5",
         "symfony/intl": "^3.1"
+    },
+    "require-dev": {
+        "ext-xdebug": "*",
+        "phpunit/phpunit": "^5.6",
+        "mockery/mockery": "^0.9.5",
+        "codeclimate/php-test-reporter": "^0.3.2"
     },
     "suggest": {
         "ext-intl": "to use the component with locales other than \"en\""
     },
     "autoload": {
         "psr-4": {
-            "Symfony\\Component\\IntlSubdivisions\\": "src/"
+            "Symfony\\Component\\IntlSubdivision\\": "src/"
         }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^5.6",
-        "mockery/mockery": "^0.9.5"
     }
 }

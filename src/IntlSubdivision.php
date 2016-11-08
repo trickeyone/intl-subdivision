@@ -1,11 +1,11 @@
 <?php
-namespace Symfony\Component\IntlSubdivisions;
+namespace Symfony\Component\IntlSubdivision;
 
 use Symfony\Component\Intl\Data\Bundle\Reader\BufferedBundleReader;
 use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReader;
 use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface;
 use Symfony\Component\Intl\Data\Bundle\Reader\JsonBundleReader;
-use Symfony\Component\IntlSubdivisions\Subdivision\SubdivisionBundle;
+use Symfony\Component\IntlSubdivision\Subdivision\SubdivisionBundle;
 
 final class IntlSubdivision implements IntlSubdivisionInterface
 {

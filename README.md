@@ -1,6 +1,12 @@
 IntlSubdivision Component
 =============
 
+[![Build Status](https://travis-ci.org/trickeyone/intl-subdivision.png?branch=master)](https://travis-ci.org/trickeyone/intl-subdivision)
+[![Test Coverage](https://codeclimate.com/github/trickeyone/intl-subdivision/badges/coverage.svg)](https://codeclimate.com/github/trickeyone/intl-subdivision/coverage)
+[![Code Climate](https://codeclimate.com/github/trickeyone/intl-subdivision/badges/gpa.svg)](https://codeclimate.com/github/trickeyone/intl-subdivision)
+[![HitCount](https://hitt.herokuapp.com/trickeyone/intl-subdivision.svg)](https://github.com/trickeyone/intl-subdivision)
+
+
 A companion component to Symfony's Intl Component. This component allows for easy retrieval of a country's states/provinces
 using the country's [ISO 3166-1 alpha-2] [0] code.
 

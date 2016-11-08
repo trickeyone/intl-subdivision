@@ -1,5 +1,5 @@
 <?php
-namespace Symfony\Component\IntlSubdivisions\Subdivision;
+namespace Symfony\Component\IntlSubdivision\Subdivision;
 
 use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface;
 use Symfony\Component\Intl\Exception\MissingResourceException;

@@ -1,11 +1,12 @@
 <?php
-namespace Symfony\Component\IntlSubdivisions\Subdivision;
+namespace Symfony\Component\IntlSubdivision\Subdivision;
 
 use Symfony\Component\Intl\Data\Bundle\Reader\BufferedBundleReader;
 use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReader;
 use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface;
 use Symfony\Component\Intl\Data\Bundle\Reader\JsonBundleReader;
-use Symfony\Component\IntlSubdivisions\IntlSubdivision;
+use Symfony\Component\Intl\Exception\MissingResourceException;
+use Symfony\Component\IntlSubdivision\IntlSubdivision;
 
 class SubdivisionBundleTest extends \PHPUnit_Framework_TestCase
 {
@@ -28,6 +29,15 @@ class SubdivisionBundleTest extends \PHPUnit_Framework_TestCase
         self::assertArrayHasKey('CA', $result);
         self::assertArrayHasKey('MO', $result);
         self::assertArrayHasKey('TX', $result);
+    }
+
+    public function testGetStatesAndProvincesForCountryThrowsMissingResourceException()
+    {
+        $badCountry = '0Z';
+
+        self::expectException(MissingResourceException::class);
+
+        $this->subdivisionBundle->getStatesAndProvincesForCountry($badCountry);
     }
 
     protected function setUp()
