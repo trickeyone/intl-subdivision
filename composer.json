@@ -2,14 +2,19 @@
     "name": "trickeyone/intl-subdivisions",
     "description": "A PHP Intl library to retrieve states for a given country.",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
-            "name": "trickeyone",
+            "name": "Josh England",
             "email": "joshua.en@gmail.com"
         }
     ],
     "require": {
+        "php": ">=5.5.9",
         "symfony/intl": "^3.1"
+    },
+    "suggest": {
+        "ext-intl": "to use the component with locales other than \"en\""
     },
     "autoload": {
         "psr-4": {
