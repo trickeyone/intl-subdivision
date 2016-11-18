@@ -1,6 +1,9 @@
 {
     "Version": "2016-1",
     "Subdivisions": {
+        "AC": {
+            "AC": "Ascension Island"
+        },
         "AD": {
             "2": "Canillo",
             "3": "Encamp",
@@ -65,6 +68,9 @@
             "10": "Barbuda",
             "11": "Redonda"
         },
+        "AI": {
+            "AI": "Anguilla"
+        },
         "AL": {
             "1": "Berat",
             "2": "Durr\u0091s",
@@ -112,6 +118,9 @@
             "UIG": "U\u0092ge",
             "ZAI": "Zaire"
         },
+        "AQ": {
+            "AQ": "Antarctica"
+        },
         "AR": {
             "A": "Salta",
             "B": "Buenos Aires",
@@ -138,6 +147,9 @@
             "Y": "Jujuy",
             "Z": "Santa Cruz"
         },
+        "AS": {
+            "AS": "American Samoa"
+        },
         "AT": {
             "1": "Burgenland",
             "2": "K\u008arnten",
@@ -158,6 +170,12 @@
             "TAS": "Tasmania",
             "VIC": "Victoria",
             "WA": "Western Australia"
+        },
+        "AW": {
+            "AW": "Aruba"
+        },
+        "AX": {
+            "AX": "\u00c5land Islands"
         },
         "AZ": {
             "ABS": "Abseron",
@@ -453,6 +471,12 @@
             "PL": "Plateau",
             "ZO": "Zou"
         },
+        "BL": {
+            "BL": "St. Barth\u00e9lemy"
+        },
+        "BM": {
+            "BM": "Bermuda"
+        },
         "BN": {
             "BE": "Belait",
             "BM": "Brunei-Muara",
@@ -609,6 +633,9 @@
             "SK": "Saskatchewan",
             "YT": "Yukon"
         },
+        "CC": {
+            "CC": "Cocos (Keeling) Islands"
+        },
         "CD": {
             "BC": "Bas-Congo",
             "BN": "Bandundu",
@@ -698,6 +725,9 @@
             "WR": "Woroba",
             "YM": "Yamoussoukro",
             "ZZ": "Zanzan"
+        },
+        "CK": {
+            "CK": "Cook Islands"
         },
         "CL": {
             "AI": "Ays\u008en",
@@ -851,6 +881,12 @@
             "TA": "Tarrafal",
             "TS": "Tarrafal de S\u008bo Nicolau"
         },
+        "CW": {
+            "CW": "Cura\u00e7ao"
+        },
+        "CX": {
+            "CX": "Christmas Island"
+        },
         "CY": {
             "1": "Lefkosia",
             "2": "Lemesos",
@@ -892,6 +928,9 @@
             "SN": "Sachsen",
             "ST": "Sachsen-Anhalt",
             "TH": "Th\u009fringen"
+        },
+        "DG": {
+            "DG": "Diego Garcia"
         },
         "DJ": {
             "AR": "Arta",
@@ -1014,6 +1053,9 @@
             "47": "Gharda\u0095a",
             "48": "Relizane"
         },
+        "EA": {
+            "EA": "Ceuta & Melilla"
+        },
         "EC": {
             "A": "Azuay",
             "B": "Bol\u0092var",
@@ -1085,6 +1127,9 @@
             "SIN": "Shamal Sina'",
             "SUZ": "As Suways",
             "WAD": "AI Wadi al Jadid"
+        },
+        "EH": {
+            "EH": "Western Sahara"
         },
         "ER": {
             "AN": "\u00d4Anseba",
@@ -1203,11 +1248,17 @@
             "R": "Rotuma",
             "W": "Western"
         },
+        "FK": {
+            "FK": "Falkland Islands"
+        },
         "FM": {
             "KSA": "Kosrae",
             "PNI": "Pohnpei",
             "TRK": "Chuuk",
             "YAP": "Yap"
+        },
+        "FO": {
+            "FO": "Faroe Islands"
         },
         "FR": {
             "1": "Ain",
@@ -1561,6 +1612,12 @@
             "SZ": "Samegrelo-Zemo Svanet'i",
             "TB": "T'bilisi"
         },
+        "GF": {
+            "GF": "French Guiana"
+        },
+        "GG": {
+            "GG": "Guernsey"
+        },
         "GH": {
             "AA": "Greater Accra",
             "AH": "Ashanti",
@@ -1572,6 +1629,9 @@
             "UE": "Upper East",
             "UW": "Upper West",
             "WP": "Western"
+        },
+        "GI": {
+            "GI": "Gibraltar"
         },
         "GL": {
             "KU": "Kommune Kujalleq",
@@ -1621,6 +1681,9 @@
             "TE": "T\u008elim\u008el\u008e",
             "TO": "Tougu\u008e",
             "YO": "Yomou"
+        },
+        "GP": {
+            "GP": "Guadeloupe"
         },
         "GQ": {
             "AN": "Annob\u0097n",
@@ -1685,6 +1748,9 @@
             "94": "Chania",
             "A1": "Attiki"
         },
+        "GS": {
+            "GS": "South Georgia & South Sandwich Islands"
+        },
         "GT": {
             "AV": "Alta Verapaz",
             "BV": "Baja Verapaz",
@@ -1709,6 +1775,9 @@
             "TO": "Totonicap\u0087n",
             "ZA": "Zacapa"
         },
+        "GU": {
+            "GU": "Guam"
+        },
         "GW": {
             "BA": "Bafat\u0087",
             "BL": "Bolama",
@@ -1731,6 +1800,9 @@
             "PT": "Potaro-Siparuni",
             "UD": "Upper Demerara-Berbice",
             "UT": "Upper Takutu-Upper Essequibo"
+        },
+        "HK": {
+            "HK": "Hong Kong SAR China"
         },
         "HN": {
             "AT": "Atl\u0087ntida",
@@ -1832,6 +1904,9 @@
             "ZA": "Zala",
             "ZE": "Zalaegerszeg"
         },
+        "IC": {
+            "IC": "Canary Islands"
+        },
         "ID": {
             "AC": "Aceh",
             "BA": "Bali",
@@ -1904,6 +1979,9 @@
             "TA": "Tel-Aviv",
             "Z": "HaTsafon"
         },
+        "IM": {
+            "IM": "Isle of Man"
+        },
         "IN": {
             "AN": "Andaman and Nicobar Islands",
             "AP": "Andhra Pradesh",
@@ -1941,6 +2019,9 @@
             "UP": "Uttar Pradesh",
             "UT": "Uttarakhand",
             "WB": "West Bengal"
+        },
+        "IO": {
+            "IO": "British Indian Ocean Territory"
         },
         "IQ": {
             "AN": "AI Anbar",
@@ -2116,6 +2197,9 @@
             "VS": "Medio Campidano",
             "VT": "Viterbo",
             "VV": "Vibo Valentia"
+        },
+        "JE": {
+            "JE": "Jersey"
         },
         "JM": {
             "1": "Kingston",
@@ -2348,6 +2432,9 @@
             "JA": "Al Jahra\u00d5",
             "KU": " Al \u00d4Asimah",
             "MU": "Mubarak al Kabir"
+        },
+        "KY": {
+            "KY": "Cayman Islands"
         },
         "KZ": {
             "AKM": "Aqmola oblysy",
@@ -2882,6 +2969,9 @@
             "22": "Gusinje",
             "23": "Petnjica"
         },
+        "MF": {
+            "MF": "St. Martin"
+        },
         "MG": {
             "A": "Toamasina",
             "D": "Antsiranana",
@@ -3043,6 +3133,15 @@
             "73": "Arhangay",
             "1": "Ulaanbaatar"
         },
+        "MO": {
+            "MO": "Macau SAR China"
+        },
+        "MP": {
+            "MP": "Northern Mariana Islands"
+        },
+        "MQ": {
+            "MQ": "Martinique"
+        },
         "MR": {
             "1": "Hodh ech Chargui",
             "2": "Hodh el Gharbi",
@@ -3059,6 +3158,9 @@
             "13": "Nouakchott Ouest",
             "14": "Nouakchott Nord",
             "15": "Nouakchott Sud"
+        },
+        "MS": {
+            "MS": "Montserrat"
         },
         "MT": {
             "1": "Attard",
@@ -3293,6 +3395,9 @@
             "OT": "Oshikoto",
             "OW": "Ohangwena"
         },
+        "NC": {
+            "NC": "New Caledonia"
+        },
         "NE": {
             "1": "Agadez",
             "2": "Diffa",
@@ -3302,6 +3407,9 @@
             "6": "Tillab\u008eri",
             "7": "Zinder",
             "8": "Niamey"
+        },
+        "NF": {
+            "NF": "Norfolk Island"
         },
         "NG": {
             "AB": "Abia",
@@ -3430,6 +3538,9 @@
             "13": "Uaboe",
             "14": "Yaren"
         },
+        "NU": {
+            "NU": "Niue"
+        },
         "NZ": {
             "AUK": "Auckland",
             "BOP": "Bay of Plenty",
@@ -3504,6 +3615,9 @@
             "TAC": "Tacna",
             "TUM": "Tumbes",
             "UCA": "Ucayali"
+        },
+        "PF": {
+            "PF": "French Polynesia"
         },
         "PG": {
             "CPK": "Chimbu",
@@ -3640,6 +3754,15 @@
             "WP": "Wielkopolskie",
             "ZP": "Zachodniopomorskie"
         },
+        "PM": {
+            "PM": "St. Pierre & Miquelon"
+        },
+        "PN": {
+            "PN": "Pitcairn Islands"
+        },
+        "PR": {
+            "PR": "Puerto Rico"
+        },
         "PS": {
             "BTH": "Bethlehem",
             "DEB": "Deir El Balah",
@@ -3725,6 +3848,9 @@
             "US": "Umm Salal",
             "WA": "Al Wakrah",
             "ZA": "Az\u00fc Z\u00fca\u00d4ayin"
+        },
+        "RE": {
+            "RE": "R\u00e9union"
         },
         "RO": {
             "AB": "Alba",
@@ -4218,6 +4344,9 @@
             "211": "_entrupert",
             "212": "Mirna"
         },
+        "SJ": {
+            "SJ": "Svalbard & Jan Mayen"
+        },
         "SK": {
             "BC": "Banskobystrick_ kraj",
             "BL": "Bratislavsk_ kraj",
@@ -4325,6 +4454,9 @@
             "UN": "La Uni\u0097n",
             "US": "Usulut\u0087n"
         },
+        "SX": {
+            "SX": "Sint Maarten"
+        },
         "SY": {
             "DI": "Dimashq",
             "DR": "Dar'a",
@@ -4346,6 +4478,12 @@
             "LU": "Lubombo",
             "MA": "Manzini",
             "SH": "Shiselweni"
+        },
+        "TA": {
+            "TA": "Tristan da Cunha"
+        },
+        "TC": {
+            "TC": "Turks & Caicos Islands"
         },
         "TD": {
             "BA": "Batha",
@@ -4371,6 +4509,9 @@
             "TA": "Tandjil\u008e",
             "TI": "Tibasti",
             "WF": "Wadi Fira"
+        },
+        "TF": {
+            "TF": "French Southern Territories"
         },
         "TG": {
             "C": "Centre",
@@ -4464,6 +4605,9 @@
             "GB": "Kuhistoni Badakhshon",
             "KT": "Khatlon",
             "SU": "Sughd"
+        },
+        "TK": {
+            "TK": "Tokelau"
         },
         "TL": {
             "AL": "Aileu",
@@ -4928,6 +5072,9 @@
             "TO": "Toshkent",
             "XO": "Xorazm"
         },
+        "VA": {
+            "VA": "Vatican City"
+        },
         "VC": {
             "1": "Charlotte ",
             "2": "Saint Andrew ",
@@ -4962,6 +5109,12 @@
             "X": "vargas",
             "Y": "Delta Amacuro",
             "Z": "Amazonas"
+        },
+        "VG": {
+            "VG": "British Virgin Islands"
+        },
+        "VI": {
+            "VI": "U.S. Virgin Islands"
         },
         "VN": {
             "1": "Lai Ch\u0089u",
@@ -5036,6 +5189,9 @@
             "TAE": "Taf\u008ea",
             "TOB": "Torba"
         },
+        "WF": {
+            "WF": "Wallis & Futuna"
+        },
         "WS": {
             "AA": "A'ana",
             "AL": "Aiga-i-le-Tai",
@@ -5048,6 +5204,9 @@
             "TU": "Tuamasaga",
             "VF": "Va'a-o-Fonoti",
             "VS": "Vaisigano"
+        },
+        "XK": {
+            "XK": "Kosovo"
         },
         "YE": {
             "AB": "Abyan",
@@ -5072,6 +5231,9 @@
             "SN": "San?a'",
             "SU": "Arkhabil Suqutr\u0087",
             "TA": "Ta'izz"
+        },
+        "YT": {
+            "YT": "Mayotte"
         },
         "ZA": {
             "EC": "Eastern Cape",
