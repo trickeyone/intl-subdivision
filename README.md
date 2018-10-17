@@ -26,6 +26,10 @@ $subdivisionsForCA = \Symfony\Component\IntlSubdivision::getSubdivision()->getSt
 $subdivisionsForAE = \Symfony\Component\IntlSubdivision::getSubdivision()->getStatesAndProvincesForCountry('AE');
 ```
 
+Requirements
+-----------
+* PHP 5.6 or PHP 7+
+* Symfony Intl package 3.1+ or 4.1+
 
 Resources
 ---------

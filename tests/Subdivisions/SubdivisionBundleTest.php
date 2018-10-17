@@ -1,6 +1,7 @@
 <?php
 namespace Symfony\Component\IntlSubdivision\Subdivision;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Intl\Data\Bundle\Reader\BufferedBundleReader;
 use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReader;
 use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface;
@@ -8,7 +9,7 @@ use Symfony\Component\Intl\Data\Bundle\Reader\JsonBundleReader;
 use Symfony\Component\Intl\Exception\MissingResourceException;
 use Symfony\Component\IntlSubdivision\IntlSubdivision;
 
-class SubdivisionBundleTest extends \PHPUnit_Framework_TestCase
+class SubdivisionBundleTest extends TestCase
 {
     protected $country = 'US';
     private $path = __DIR__ . '/../Resources/data';

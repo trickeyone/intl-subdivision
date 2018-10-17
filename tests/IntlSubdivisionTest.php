@@ -1,9 +1,10 @@
 <?php
 namespace Symfony\Component\IntlSubdivision;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\IntlSubdivision\Subdivision\SubdivisionBundleInterface;
 
-class IntlSubdivisionTest extends \PHPUnit_Framework_TestCase
+class IntlSubdivisionTest extends TestCase
 {
     public function testGetSubdivisions()
     {
