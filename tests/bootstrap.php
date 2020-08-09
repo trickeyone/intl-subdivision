@@ -1,6 +1,6 @@
 <?php
 
-namespace Symfony\Component\IntlStates;
+namespace Symfony\Component\IntlSubdivision;
 
 use Exception;
 

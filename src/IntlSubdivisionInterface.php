@@ -3,7 +3,7 @@ namespace Symfony\Component\IntlSubdivision;
 
 interface IntlSubdivisionInterface
 {
-    const BUFFER_SIZE = 10;
+    public static function getStatesAndProvincesForCountry(string $countryCode): array;
 
-    public static function getSubdivisions();
+    public static function getStatesAndProvinces(): array;
 }

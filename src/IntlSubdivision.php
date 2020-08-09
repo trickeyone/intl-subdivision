@@ -1,53 +1,29 @@
 <?php
 namespace Symfony\Component\IntlSubdivision;
 
-use Symfony\Component\Intl\Data\Bundle\Reader\BufferedBundleReader;
-use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReader;
-use Symfony\Component\Intl\Data\Bundle\Reader\BundleEntryReaderInterface;
-use Symfony\Component\Intl\Data\Bundle\Reader\JsonBundleReader;
-use Symfony\Component\IntlSubdivision\Subdivision\SubdivisionBundle;
+use Symfony\Component\Intl;
 
-final class IntlSubdivision implements IntlSubdivisionInterface
+final class IntlSubdivision extends Intl\ResourceBundle implements IntlSubdivisionInterface
 {
-    /**
-     * @var BundleEntryReaderInterface
-     */
-    private static $entryReader;
+    private const SUBDIVISION_LOCALE = 'en';
 
-    public static function getSubdivisions()
+    public static function getStatesAndProvincesForCountry(string $countryCode): array
     {
-        static $subdivisionsBundle = null;
-        if (null === $subdivisionsBundle) {
-            $subdivisionsBundle = new SubdivisionBundle(
-                self::getDataDirectory(),
-                self::getEntryReader()
-            );
+        $validCountry = Intl\Countries::exists($countryCode);
+        if (!$validCountry) {
+            throw new Intl\Exception\MissingResourceException('Invalid Country Code: ' . $countryCode);
         }
 
-        return $subdivisionsBundle;
+        return self::readEntry(['Subdivisions', $countryCode], self::SUBDIVISION_LOCALE);
     }
 
-    private static function getDataDirectory()
+    public static function getStatesAndProvinces(): array
+    {
+        return self::readEntry(['Subdivisions'], self::SUBDIVISION_LOCALE);
+    }
+
+    protected static function getPath(): string
     {
         return realpath(__DIR__ . '/Resources/data');
-    }
-
-    /**
-     * Returns the cached bundle entry reader.
-     *
-     * @return BundleEntryReaderInterface The bundle entry reader
-     */
-    private static function getEntryReader()
-    {
-        if (null === self::$entryReader) {
-            self::$entryReader = new BundleEntryReader(
-                new BufferedBundleReader(
-                    new JsonBundleReader(),
-                    self::BUFFER_SIZE
-                )
-            );
-        }
-
-        return self::$entryReader;
     }
 }

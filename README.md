@@ -28,8 +28,8 @@ $subdivisionsForAE = \Symfony\Component\IntlSubdivision::getSubdivision()->getSt
 
 Requirements
 -----------
-* PHP 5.6 or PHP 7+
-* Symfony Intl package 3.1+ or 4.1+
+* PHP PHP 7+
+* Symfony Intl package 4.1+ or 5.0+
 
 Resources
 ---------

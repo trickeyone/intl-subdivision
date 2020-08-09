@@ -1,7 +1,7 @@
 language: php
 
 php:
-  - 7.2
+  - 7.4
 
 before_install:
   - composer selfupdate
@@ -9,7 +9,4 @@ before_install:
 install:
   - composer install --prefer-dist
 
-script: vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-
-after_script:
-  - vendor/bin/test-reporter
+script: vendor/bin/phpunit
