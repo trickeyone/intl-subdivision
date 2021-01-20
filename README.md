@@ -8,10 +8,10 @@ IntlSubdivision Component
 
 
 A companion component to Symfony's Intl Component. This component allows for easy retrieval of a country's states/provinces
-using the country's [ISO 3166-1 alpha-2] [0] code.
+using the country's [ISO 3166-1 alpha-2][0] code.
 
 The Symfony Intl component is a replacement for the C intl extension. It is limited to only the "en" locale. If you want
-to have access to more locales you should [install the intl PECL extension] [1].
+to have access to more locales you should [install the intl PECL extension][1].
 
 ### Usage:
 
