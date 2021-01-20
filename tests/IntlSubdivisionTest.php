@@ -33,8 +33,15 @@ class IntlSubdivisionTest extends TestCase
     {
         $badCountry = '0Z';
 
-        self::expectException(MissingResourceException::class);
+        $this->expectException(MissingResourceException::class);
 
         IntlSubdivision::getStatesAndProvincesForCountry($badCountry);
+    }
+
+    public function testAllProvinces()
+    {
+        $testSubdivisions = require __DIR__ . '/subdivisions.php';
+
+        self::assertSame($testSubdivisions, IntlSubdivision::getStatesAndProvinces());
     }
 }
