@@ -2,6 +2,7 @@
 namespace Symfony\Component\IntlSubdivision;
 
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Intl\Countries;
 use Symfony\Component\Intl\Exception\MissingResourceException;
 
 class IntlSubdivisionTest extends TestCase
@@ -36,6 +37,16 @@ class IntlSubdivisionTest extends TestCase
         $this->expectException(MissingResourceException::class);
 
         IntlSubdivision::getStatesAndProvincesForCountry($badCountry);
+    }
+
+    public function testSymfonyCountries()
+    {
+        $countries = Countries::getCountryCodes();
+        $result = \array_keys(IntlSubdivision::getStatesAndProvinces());
+        \natsort($countries);
+        \natsort($result);
+
+        self::assertSame($countries, $result);
     }
 
     public function testAllProvinces()
