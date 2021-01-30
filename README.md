@@ -16,13 +16,13 @@ to have access to more locales you should [install the intl PECL extension][1].
 
 ```php
 // States/Provinces for the United States of America
-$subdivisionsForUS = \Symfony\Component\IntlSubdivision::getStatesAndProvincesForCountry('US');
+$subdivisionsForUS = \Symfony\Component\IntlSubdivision\IntlSubdivision::getStatesAndProvincesForCountry('US');
   
 // States/Provinces for Canada
-$subdivisionsForCA = \Symfony\Component\IntlSubdivision::getStatesAndProvincesForCountry('CA');
+$subdivisionsForCA = \Symfony\Component\IntlSubdivision\IntlSubdivision::getStatesAndProvincesForCountry('CA');
   
 // States/Provinces for the United Arab Emirates
-$subdivisionsForAE = \Symfony\Component\IntlSubdivision::getStatesAndProvincesForCountry('AE');
+$subdivisionsForAE = \Symfony\Component\IntlSubdivision\IntlSubdivision::getStatesAndProvincesForCountry('AE');
 ```
 
 Requirements
