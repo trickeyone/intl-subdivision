@@ -3,7 +3,7 @@
     "description": "A PHP Intl library to retrieve states for a given country.",
     "type": "library",
     "license": "MIT",
-    "version": "2.0.1",
+    "version": "3.0.0",
     "authors": [
         {
             "name": "Josh England",
@@ -16,8 +16,10 @@
     },
     "require-dev": {
         "ext-xdebug": "*",
+        "ext-json": "*",
         "mockery/mockery": "^1.0",
-        "phpunit/phpunit": "^8.0"
+        "phpunit/phpunit": "^8.0",
+        "sokil/php-isocodes": "^3.3"
     },
     "suggest": {
         "ext-intl": "to use the component with locales other than \"en\""
@@ -25,6 +27,16 @@
     "autoload": {
         "psr-4": {
             "Symfony\\Component\\IntlSubdivision\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Symfony\\Component\\IntlSubdivision\\Test\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.0.x-dev"
         }
     }
 }

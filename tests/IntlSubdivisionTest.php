@@ -1,12 +1,17 @@
 <?php
-namespace Symfony\Component\IntlSubdivision;
+namespace Symfony\Component\IntlSubdivision\Test;
 
 use PHPUnit\Framework\TestCase;
+use Sokil\IsoCodes;
+use Symfony\Component\Intl\Countries;
 use Symfony\Component\Intl\Exception\MissingResourceException;
+use Symfony\Component\IntlSubdivision\IntlSubdivision;
+use function array_keys;
+use function natsort;
 
 class IntlSubdivisionTest extends TestCase
 {
-    protected $country = 'US';
+    const COUNTRY = 'US';
 
     public function testGetStatesAndProvinces()
     {
@@ -21,7 +26,7 @@ class IntlSubdivisionTest extends TestCase
 
     public function testGetStatesAndProvincesForCountry()
     {
-        $result = IntlSubdivision::getStatesAndProvincesForCountry($this->country);
+        $result = IntlSubdivision::getStatesAndProvincesForCountry(self::COUNTRY);
 
         self::assertNotEmpty($result);
         self::assertArrayHasKey('CA', $result);
@@ -33,8 +38,79 @@ class IntlSubdivisionTest extends TestCase
     {
         $badCountry = '0Z';
 
-        self::expectException(MissingResourceException::class);
+        $this->expectException(MissingResourceException::class);
 
         IntlSubdivision::getStatesAndProvincesForCountry($badCountry);
+    }
+
+    public function testAllSymfonyCountriesArePresentInDatabase()
+    {
+        $countries = Countries::getCountryCodes();
+        $result = array_keys(IntlSubdivision::getStatesAndProvinces());
+        natsort($countries);
+        natsort($result);
+
+        self::assertSame($countries, $result);
+    }
+
+    /**
+     * @dataProvider subdivisionsDataProvider
+     * @param string $countryCode
+     * @param array  $expectedSubdivisions
+     */
+    public function testGetStatesAndProvincesForCountryWithExpectedResult(string $countryCode, array $expectedSubdivisions)
+    {
+        self::assertTrue(Countries::exists($countryCode));
+        $subdivisions = IntlSubdivision::getStatesAndProvincesForCountry($countryCode);
+        self::assertIsArray($subdivisions);
+        self::assertSame($expectedSubdivisions, $subdivisions);
+    }
+
+    public function subdivisionsDataProvider()
+    {
+        $isoCodes = new IsoCodes\IsoCodesFactory();
+
+        return array_reduce(
+            iterator_to_array($isoCodes->getCountries()),
+            function (array $countries, IsoCodes\Database\Countries\Country $country) use ($isoCodes) {
+                $countryCode = $country->getAlpha2();
+                if (!Countries::exists($countryCode)) {
+                    return $countries;
+                }
+                $subdivisions = $isoCodes->getSubdivisions()->getAllByCountryCode($countryCode);
+                if (empty($subdivisions)) {
+                    $countries[] = [$countryCode, [$countryCode => $country->getName()]];
+                } else {
+                    $prefix = $countryCode . '-';
+                    $subdivisions = array_reduce(
+                        $subdivisions,
+                        function (
+                            array $carry,
+                            IsoCodes\Database\Subdivisions\Subdivision $subdivision
+                        ) use (
+                            $prefix
+                        ) {
+                            $alphaCode = preg_replace('/^' . $prefix . '/', '', $subdivision->getCode());
+                            $subdivisionName = $subdivision->getName();
+                            if (false !== strpos($subdivisionName, ';')) {
+                                $subdivisionName = preg_replace('/^(.+);\s?(.+)$/', '$1 ($2)', $subdivisionName);
+                            }
+                            $carry[$alphaCode] = $subdivisionName;
+
+                            return $carry;
+                        },
+                        []
+                    );
+                    uksort($subdivisions, 'strnatcmp');
+                    $countries[] = [
+                        $countryCode,
+                        $subdivisions
+                    ];
+                }
+
+                return $countries;
+            },
+            []
+        );
     }
 }
