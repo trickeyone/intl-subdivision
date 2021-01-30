@@ -16,6 +16,7 @@
     },
     "require-dev": {
         "ext-xdebug": "*",
+        "ext-json": "*",
         "mockery/mockery": "^1.0",
         "phpunit/phpunit": "^8.0",
         "sokil/php-isocodes": "^3.3"
@@ -26,6 +27,11 @@
     "autoload": {
         "psr-4": {
             "Symfony\\Component\\IntlSubdivision\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Symfony\\Component\\IntlSubdivision\\Test\\": "tests/"
         }
     },
     "extra": {

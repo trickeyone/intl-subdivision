@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
 use Sokil\IsoCodes\IsoCodesFactory;
@@ -10,10 +11,10 @@ $countries = $isoCodes->getCountries();
 foreach ($countries as $country) {
     $countryCode = $country->getAlpha2();
     if (!$validCountry = Intl\Countries::exists($countryCode)) {
-        echo \sprintf('Country %s: %s not found', $countryCode, $country->getName());
+        echo sprintf('Not a supported Intl Country: %s "%s"', $countryCode, $country->getName());
         continue;
     }
-    if (!\array_key_exists($countryCode, $output)) {
+    if (!array_key_exists($countryCode, $output)) {
         $output[$countryCode] = [];
     }
     $prefix = $countryCode . '-';
@@ -23,34 +24,34 @@ foreach ($countries as $country) {
     } else {
         foreach ($subdivisions as $subdivision) {
             $alphaCode = $subdivision->getCode();
-            if (0 === \strpos($alphaCode, $prefix)) {
-                $alphaCode = \substr($alphaCode, \strlen($prefix));
+            if (0 === strpos($alphaCode, $prefix)) {
+                $alphaCode = substr($alphaCode, strlen($prefix));
             }
             $subdivisionName = $subdivision->getName();
-            if (false !== \strpos($subdivisionName, ';')) {
-                $subdivisionName = \preg_replace('/^(.+);\s?(.+)$/', '$1 ($2)', $subdivisionName);
+            if (false !== strpos($subdivisionName, ';')) {
+                $subdivisionName = preg_replace('/^(.+);\s?(.+)$/', '$1 ($2)', $subdivisionName);
             }
             $output[$countryCode][$alphaCode] = $subdivisionName;
         }
     }
-    \uksort($output[$countryCode], 'natSortKeys');
+    uksort($output[$countryCode], 'strnatcmp');
 }
-//ensure all Symfony alpha codes exist
+/**
+ * ensure all Symfony alpha codes exist
+ * @link https://github.com/trickeyone/intl-subdivision/commit/573dec4a646dfccf40beafcd5d37a6c2382c7ccc
+ */
 foreach (Intl\Countries::getNames() as $alphaCode => $name) {
-    if (!\array_key_exists($alphaCode, $output)) {
+    if (!array_key_exists($alphaCode, $output)) {
         $output[$alphaCode] = [
             $alphaCode => $name,
         ];
     }
 }
-\uksort($output, 'natSortKeys');
-\file_put_contents(__DIR__ . '/../tests/subdivisions.php', '<?php return ' . \var_export($output, true) . ';');
-$output = \json_encode([
+uksort($output, 'strnatcmp');
+$output = json_encode([
     'Version' => date('Y-m'),
     'Subdivisions' => $output,
 ], JSON_PRETTY_PRINT);
-\file_put_contents(__DIR__ . '/../src/Resources/data/en.json', $output);
-function natSortKeys($a, $b)
-{
-    return \strnatcmp($a, $b);
-}
+file_put_contents(__DIR__ . '/../src/Resources/data/en.json', $output);
+print 'Subdivisions Database build complete.' . PHP_EOL;
+exit(0);
