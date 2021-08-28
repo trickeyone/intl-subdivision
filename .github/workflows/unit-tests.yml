@@ -15,7 +15,7 @@ jobs:
         runs-on: Ubuntu-20.04
 
         env:
-            extensions: amqp,apcu,igbinary,intl,mbstring,memcached
+            extensions: amqp,apcu,igbinary,intl,mbstring,memcached,xdebug
 
         strategy:
             matrix:
@@ -39,7 +39,7 @@ jobs:
             -   name: Configure for PHP 8.1
                 if: "${{ matrix.php == '8.1' }}"
                 run: |
-                    echo "extensions=mbstring" >> $GITHUB_ENV
+                    echo "extensions=mbstring,xdebug" >> $GITHUB_ENV
                     composer config platform.php 8.0.99
 
             -   name: Setup PHP
