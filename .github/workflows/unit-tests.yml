@@ -26,7 +26,7 @@ jobs:
             mode: high-deps
           - php: '8.0'
             mode: low-deps
-          - php: '8.1'
+          - php: '8.1-rc'
             mode: experimental
       fail-fast: false
 
@@ -37,7 +37,7 @@ jobs:
           fetch-depth: 2
 
       - name: Configure for PHP 8.1
-        if: "${{ matrix.php == '8.1' }}"
+        if: "${{ matrix.php == '8.1-rc' }}"
         run: |
           echo "extensions=gettext mbstring xdebug" >> $GITHUB_ENV
 
@@ -47,6 +47,10 @@ jobs:
           memory_limit: -1
           php_version: "${{ matrix.php }}"
           php_extensions: "${{ env.extensions }}"
+
+      - name: List PHP extensions
+        run: |
+          php -m
 
       - name: Run Tests
         uses: php-actions/phpunit@v3
