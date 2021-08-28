@@ -21,11 +21,11 @@ jobs:
       matrix:
         include:
           - php: '7.2'
-            phpunit: 8
+            phpunit: '8'
           - php: '7.4'
-            phpunit: 9
+            phpunit: 'latest'
           - php: '8.0'
-            phpunit: 9
+            phpunit: 'latest'
       fail-fast: false
 
     steps:
@@ -49,5 +49,6 @@ jobs:
           args: --coverage-text
           memory_limit: 256M
           bootstrap: ./vendor/autoload.php
+          version: "${{ matrix.phpunit }}"
           php_version: "${{ matrix.php }}"
           php_extensions: "${{ env.extensions }}"
