@@ -12,7 +12,7 @@ jobs:
 
   tests:
     name: Unit Tests
-    runs-on: Ubuntu-20.04
+    runs-on: ubuntu-latest
 
     env:
       extensions: amqp apcu igbinary intl mbstring memcached xdebug
@@ -47,9 +47,6 @@ jobs:
           memory_limit: -1
           php_version: "${{ matrix.php }}"
           php_extensions: "${{ env.extensions }}"
-
-      - name: Install dependencies
-        run: composer install --no-progress
 
       - name: Run Tests
         uses: php-actions/phpunit@v3
