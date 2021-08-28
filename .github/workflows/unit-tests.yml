@@ -16,11 +16,13 @@ jobs:
 
     env:
       extensions: amqp apcu gettext igbinary intl mbstring memcached xdebug
+      phpunit_version: latest
 
     strategy:
       matrix:
         include:
           - php: '7.2'
+            phpunit: '8'
           - php: '8.0'
           - php: '7.4'
             mode: high-deps
@@ -41,6 +43,11 @@ jobs:
           php_version: "${{ matrix.php }}"
           php_extensions: "${{ env.extensions }}"
 
+      - name: Configure PHPUnit for PHP7.2
+        if: "${{ matrix.php == '7.2' }}"
+        run: |
+          echo "phpunit_version=8" >> $GITHUB_ENV
+
       - name: Run Tests
         uses: php-actions/phpunit@v3
         env:
@@ -49,5 +56,6 @@ jobs:
           bootstrap: vendor/autoload.php
           args: --coverage-text
           memory_limit: 256M
+          version: "${{ env.phpunit_version }}"
           php_version: "${{ matrix.php }}"
           php_extensions: "${{ env.extensions }}"
