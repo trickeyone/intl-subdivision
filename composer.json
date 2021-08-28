@@ -3,7 +3,7 @@
     "description": "A PHP Intl library to retrieve states for a given country.",
     "type": "library",
     "license": "MIT",
-    "version": "3.0.0",
+    "version": "3.0.2",
     "authors": [
         {
             "name": "Josh England",
@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.1 || ^8.0",
         "symfony/intl": "^4.1 || ^5.0"
     },
     "require-dev": {
