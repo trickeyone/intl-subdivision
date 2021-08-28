@@ -42,7 +42,7 @@ jobs:
           echo "extensions=mbstring,xdebug" >> $GITHUB_ENV
 
       - name: Setup PHP
-        uses: php-actions/composer@v5
+        uses: php-actions/composer@v6
         with:
           memory_limit: -1
           php_version: "${{ matrix.php }}"
