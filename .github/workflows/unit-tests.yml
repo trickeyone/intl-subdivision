@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        phpunit: latest
+        phpunit: [latest]
         include:
           - php: '7.2'
             phpunit: 8
