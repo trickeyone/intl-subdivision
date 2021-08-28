@@ -53,11 +53,7 @@ class IntlSubdivisionTest extends TestCase
         self::assertSame($countries, $result);
     }
 
-    /**
-     * @dataProvider subdivisionsDataProvider
-     * @param string $countryCode
-     * @param array  $expectedSubdivisions
-     */
+    /** @dataProvider subdivisionsDataProvider */
     public function testGetStatesAndProvincesForCountryWithExpectedResult(string $countryCode, array $expectedSubdivisions)
     {
         self::assertTrue(Countries::exists($countryCode));

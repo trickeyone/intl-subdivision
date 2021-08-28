@@ -41,15 +41,6 @@ jobs:
           php_version: "${{ matrix.php }}"
           php_extensions: "${{ env.extensions }}"
 
-      - name: List PHP extensions
-        run: |
-          php -m
-
-      - name: Check gettext
-        run: |
-          php -r "var_dump(extension_loaded('gettext'));";
-          php -r "var_export(function_exists('bindtextdomain'));";
-
       - name: Run Tests
         uses: php-actions/phpunit@v3
         env:
@@ -57,3 +48,6 @@ jobs:
         with:
           bootstrap: vendor/autoload.php
           args: --coverage-text
+          memory_limit: 256M
+          php_version: "${{ matrix.php }}"
+          php_extensions: "${{ env.extensions }}"
