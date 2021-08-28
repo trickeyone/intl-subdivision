@@ -48,10 +48,30 @@ foreach (Intl\Countries::getNames() as $alphaCode => $name) {
     }
 }
 uksort($output, 'strnatcmp');
-$output = json_encode([
-    'Version' => date('Y-m'),
+$packageData = [
+    'Version'      => date('Y-m'),
     'Subdivisions' => $output,
-], JSON_PRETTY_PRINT);
-file_put_contents(__DIR__ . '/../src/Resources/data/en.json', $output);
+];
+
+function pretty_export($expression) {
+    $export = var_export($expression, true);
+    $patterns = [
+        "/array \(/" => '[',
+        "/^([ ]*)\)(,?)$/m" => '$1]$2',
+        "/=>[ ]?\n[ ]+\[/" => '=> [',
+        "/([ ]*)(\'[^\']+\') => ([\[\'])/" => '$1$2 => $3',
+    ];
+
+    return preg_replace(array_keys($patterns), array_values($patterns), $export);
+}
+
+$phpOutput = pretty_export($packageData);
+$phpOutput = <<<EOF
+<?php
+
+return {$phpOutput};
+
+EOF;
+file_put_contents(__DIR__ . '/../src/Resources/data/en.php', $phpOutput);
 print 'Subdivisions Database build complete.' . PHP_EOL;
 exit(0);

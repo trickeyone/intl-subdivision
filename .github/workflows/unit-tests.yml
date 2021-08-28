@@ -51,10 +51,13 @@ jobs:
                     extensions: "${{ env.extensions }}"
                     tools: flex
 
-            -   name: Setup Composer
-                uses: php-actions/composer@v5 # or alternative dependency management
+            -   name: Install dependencies
+                run: composer install --no-progress
 
             -   name: Run Tests
                 uses: php-actions/phpunit@v3
+                env:
+                    XDEBUG_MODE: coverage
                 with:
                     bootstrap: vendor/autoload.php
+                    args: --coverage-text
