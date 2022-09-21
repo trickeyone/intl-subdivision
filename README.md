@@ -29,7 +29,7 @@ $subdivisionsForAE = \Symfony\Component\IntlSubdivision\IntlSubdivision::getStat
 Requirements
 -----------
 * PHP 7+ or 8+
-* Symfony Intl package 5.0+
+* Symfony Intl package 5.0+ or 6.0+
   * older versions can still support 4.0+ but are not actively supported
 
 Resources
