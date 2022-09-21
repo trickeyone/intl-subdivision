@@ -26,6 +26,8 @@ jobs:
             phpunit: 'latest'
           - php: '8.0'
             phpunit: 'latest'
+          - php: '8.1'
+            phpunit: 'latest'
       fail-fast: false
 
     steps:
