@@ -2,7 +2,7 @@ IntlSubdivision Component
 =============
 
 [![PHPUnit](https://github.com/trickeyone/intl-subdivision/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/trickeyone/intl-subdivision/actions/workflows/unit-tests.yml)
-[![Build Status](https://app.travis-ci.com/trickeyone/intl-subdivision.svg?branch=master)](https://app.travis-ci.com/trickeyone/intl-subdivision)
+![code coverage badge](https://raw.githubusercontent.com/trickeyone/intl-subdividion/gh-images/coverage.svg)
 [![Test Coverage](https://codeclimate.com/github/trickeyone/intl-subdivision/badges/coverage.svg)](https://codeclimate.com/github/trickeyone/intl-subdivision/coverage)
 [![Code Climate](https://codeclimate.com/github/trickeyone/intl-subdivision/badges/gpa.svg)](https://codeclimate.com/github/trickeyone/intl-subdivision)
 

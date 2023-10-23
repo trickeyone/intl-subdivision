@@ -20,14 +20,15 @@ jobs:
     strategy:
       matrix:
         include:
-          - php: '7.2'
-            phpunit: '8'
-          - php: '7.4'
-            phpunit: 'latest'
           - php: '8.0'
-            phpunit: 'latest'
+            phpunit: '9.6'
+            phpunit_config: 'phpunit.xml'
           - php: '8.1'
-            phpunit: 'latest'
+            phpunit: '9.6'
+            phpunit_config: 'phpunit.xml'
+          - php: '8.2'
+            phpunit: '9.6'
+            phpunit_config: 'phpunit.xml'
       fail-fast: false
 
     steps:
@@ -36,6 +37,16 @@ jobs:
         with:
           fetch-depth: 2
 
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-{{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
+
+      - name: Setup Code Climate
+        uses: remarkablemark/setup-codeclimate@v2
+        if: ${{ github.event_name == 'push' && matrix.php == '8.2' }}
+
       - name: Setup PHP
         uses: php-actions/composer@v6
         with:
@@ -43,14 +54,50 @@ jobs:
           php_version: "${{ matrix.php }}"
           php_extensions: "${{ env.extensions }}"
 
+      - name: CodeClimate Before Build
+        if: ${{ github.event_name == 'push' && matrix.php == '8.2' }}
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        run: cc-test-reporter before-build
+
       - name: Run Tests
         uses: php-actions/phpunit@v3
         env:
           XDEBUG_MODE: coverage
         with:
-          args: --coverage-text
           memory_limit: 256M
-          bootstrap: ./vendor/autoload.php
+          configuration: "${{ matrix.phpunit_config }}"
           version: "${{ matrix.phpunit }}"
+          coverage_clover: "clover.xml"
+          coverage_text: true
           php_version: "${{ matrix.php }}"
           php_extensions: "${{ env.extensions }}"
+
+      - name: Fix file paths in clover.xml
+        shell: bash
+        run: |
+          sed -i 's#/app#'"$PWD"'#g' clover.xml
+
+      - name: CodeClimate After Build
+        if: ${{ github.event_name == 'push' && matrix.php == '8.2' }}
+        env:
+          COVERAGE_FILE: clover.xml
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        run: cc-test-reporter after-build -t clover
+
+      - name: Make code coverage badge
+        if: ${{ github.event_name == 'push' && matrix.php == '8.2' }}
+        uses: timkrase/phpunit-coverage-badge@v1.2.1
+        with:
+          coverage_badge_path: output/coverage.svg
+          push_badge: false
+
+      - name: Push code coverage badge
+        if: ${{ github.event_name == 'push' && matrix.php == '8.2' }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./output
+          publish_branch: gh-images
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'

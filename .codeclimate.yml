@@ -1,0 +1,8 @@
+version: "2"
+checks:
+  method-complexity:
+    config:
+      threshold: 15
+  argument-count:
+    config:
+      threshold: 8
