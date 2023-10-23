@@ -6,3 +6,5 @@ checks:
   argument-count:
     config:
       threshold: 8
+exclude_patterns:
+  - "src/Resources/data/en.php"
